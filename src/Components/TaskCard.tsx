@@ -4,13 +4,11 @@ import { Card, Button } from "react-native-elements";
 import RadioButton from "./RadioButton";
 
 interface CardProps {
-  title: string;
   description: string;
-  buttonText: string;
   //   onButtonPress: () => void;
 }
 
-const CustomCard: React.FC<CardProps> = ({ title, description }) => {
+const CustomCard: React.FC<CardProps> = ({ description }) => {
   return (
     <Card containerStyle={styles.card}>
       <View style={styles.content}>
@@ -39,8 +37,8 @@ const styles = StyleSheet.create({
   },
   description: {
     // marginVertical: 10,
-    fontSize: 16,
-    color: "#333",
+    fontSize: 14,
+    color: "#fff",
   },
   content: {
     flexDirection: "row",

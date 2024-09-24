@@ -2,19 +2,34 @@ import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Card, Button } from "react-native-elements";
 import RadioButton from "./RadioButton";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 interface CardProps {
   description: string;
-  //   onButtonPress: () => void;
+  selected: boolean;
+  onSelect: () => void;
+  onRemove: () => void;
 }
 
-const CustomCard: React.FC<CardProps> = ({ description }) => {
+const CustomCard: React.FC<CardProps> = ({
+  description,
+  onRemove,
+  onSelect,
+  selected,
+}) => {
   return (
     <Card containerStyle={styles.card}>
       <View style={styles.content}>
-        <RadioButton selected={false}></RadioButton>
+        <RadioButton selected={selected} onPress={onSelect}></RadioButton>
         <View style={styles.textContainer}>
-          <Text style={styles.description}>{description}</Text>
+          <Text
+            style={[styles.description, selected && styles.selectedDescription]}
+          >
+            {description}
+          </Text>
+        </View>
+        <View>
+          <Icon name="trash" size={20} color="red" onPress={onRemove} />
         </View>
       </View>
     </Card>
@@ -48,6 +63,10 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     marginLeft: 10,
+  },
+  selectedDescription: {
+    textDecorationLine: "line-through",
+    color: "#808080",
   },
 });
 

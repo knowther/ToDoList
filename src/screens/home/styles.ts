@@ -90,10 +90,28 @@ export const styles = StyleSheet.create({
 
   task_list_view: {
     marginTop: 20,
-    display: "flex",
+    // // padding: 15,
+    // display: "flex",
+    // textAlign: "center",
+    // backgroundColor: "red",
+    marginLeft: -5,
+    flex: 1,
+    justifyContent: "center",
     alignItems: "center",
   },
   task_detail_card: {
     backgroundColor: "#262626",
+  },
+  text_from_empty_list_upper: {
+    color: "#808080",
+    fontWeight: "700",
+  },
+  text_from_empty_list_down: {
+    color: "#808080",
+  },
+  view_from_clipboard_empty_list: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 16,
   },
 });

@@ -1,19 +1,19 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 interface RadioButtonProps {
   selected: boolean;
-  //   onPress: (value: string) => void;
+  onPress: () => void;
 }
 
-const RadioButton: React.FC<RadioButtonProps> = ({
-  selected,
-  //   onPress,
-}) => {
+const RadioButton: React.FC<RadioButtonProps> = ({ selected, onPress }) => {
   return (
-    <TouchableOpacity style={styles.radioButton}>
+    <TouchableOpacity style={styles.radioButton} onPress={onPress}>
       {/* onPress={() => onPress(value)} */}
-      <View style={[styles.circle, selected && styles.selectedCircle]} />
+      <View style={[styles.circle, selected && styles.selectedCircle]}>
+        {selected && <Icon name="check" size={15} color="white" />}
+      </View>
     </TouchableOpacity>
   );
 };
@@ -29,7 +29,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   selectedCircle: {
-    backgroundColor: "#1E6F9F",
+    backgroundColor: "#5E60CE",
+    borderColor: "#5E60CE",
+  },
+  radioButton: {
+    marginRight: 10,
   },
 });
 
